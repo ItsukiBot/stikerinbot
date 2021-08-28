@@ -38,14 +38,14 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   let arrayMenu = ['all', 'game', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'internet', 'anonymous', 'nulis', 'downloader', 'tools', 'fun', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
-    'main': 'Utama',
+    'main': 'Main',
     'game': 'Game',
     'xp': 'Exp & Limit',
-    'sticker': 'Stiker',
+    'sticker': 'Sticker',
     'kerang': 'Kerang Ajaib',
     'quotes': 'Quotes',
-    'admin': `Admin ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`,
-    'group': 'Grup',
+    'admin': `Admin ${global.opts['restrict'] ? '' : '(Disabled)'}`,
+    'group': 'Group',
     'premium': 'Premium',
     'internet': 'Internet',
     'anonymous': 'Anonymous Chat',
@@ -57,10 +57,10 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'vote': 'Voting',
     'absen': 'Absen',
     'quran': 'Al Qur\'an',
-    'audio': 'Pengubah Suara',
-    'jadibot': 'Jadi Bot',
+    'audio': 'Audio Changer',
+    'jadibot': 'Baileys',
     'info': 'Info',
-    '': 'Tanpa Kategori',
+    '': 'undefined',
   }
   if (teks == 'game') tags = {
     'game': 'Game'
@@ -69,7 +69,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'xp': 'Exp & Limit'
   }
   if (teks == 'stiker') tags = {
-    'sticker': 'Stiker'
+    'sticker': 'Sticker'
   }
   if (teks == 'kerangajaib') tags = {
     'kerang': 'Kerang Ajaib'
@@ -81,7 +81,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'admin': `Admin ${global.opts['restrict'] ? '' : '(Dinonaktifkan)'}`
   }
   if (teks == 'grup') tags = {
-    'group': 'Grup'
+    'group': 'Group'
   }
   if (teks == 'premium') tags = {
     'premium': 'Premium'
@@ -115,16 +115,16 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'quran': 'Al Qur\'an'
   }
   if (teks == 'audio') tags = {
-    'audio': 'Pengubah Suara'
+    'audio': 'Audio Changer'
   }
   if (teks == 'jadibot') tags = {
-    'jadibot': 'Jadi Bot'
+    'jadibot': 'Baileys'
   }
   if (teks == 'info') tags = {
     'info': 'Info'
   }
   if (teks == 'tanpakategori') tags = {
-    '': 'Tanpa Kategori'
+    '': 'undefined'
   }
   if (teks == 'owner') tags = {
     'owner': 'Owner',
@@ -189,15 +189,15 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
         "listMessage": {
           "title": `${ucapan()}, ${name}`.trim(),
-          "description": "© stikerin",
-          "buttonText": "Klik Disini",
+          "description": "© ItsukiBot",
+          "buttonText": "Click Here!",
           "listType": "SINGLE_SELECT",
           "sections": [
             {
               "rows": [
                 {
-                  "title": `Semua Perintah`,
-                  "description": "",
+                  "title": `All Menu`,
+                  "description": "_choose this to use all menu_",
                   "rowId": ".? all"
                 }, {
                   "title": "Game",
@@ -210,7 +210,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "rowId": ".? xp"
 
                 }, {
-                  "title": "Stiker",
+                  "title": "Sticker",
                   "description": "",
                   "rowId": ".? stiker"
                 }, {
@@ -226,7 +226,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "description": "",
                   "rowId": ".? admin"
                 }, {
-                  "title": "Grup",
+                  "title": "Group",
                   "description": "",
                   "rowId": ".? grup"
                 }, {
@@ -287,7 +287,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
                   "rowId": ".? tanpakategori"
                 }, {
                   "title": "Owner",
-                  "description": "",
+                  "description": "_OWNER ONLY_",
                   "rowId": ".? owner"
                 }
               ]
