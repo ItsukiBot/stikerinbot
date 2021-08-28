@@ -7,21 +7,19 @@ let moment = require('moment-timezone')
 const defaultMenu = {
   before: `
 ┌─〔 %me 〕
-├ Hai, %name!
-│
-├ Tersisa *%limit Limit*
-├ Role *%role*
-├ Level *%level (%exp / %maxexp)* [%xp4levelup]
-├ %totalexp XP secara Total
 │ 
-├ Tanggal: *%week %weton, %date*
-├ Tanggal Islam: *%dateIslamic*
-├ Waktu: *%time*
+├ Username : %name
+├ Limit : %limit
+├ Role : *%role*
+├ Level *%level (%exp / %maxexp)* [%xp4levelup]
+├ %totalexp XP in total
+│ 
+├ Day, Weton, Date : *%week %weton, %date*
+├ Islamic Date : *%dateIslamic*
+├ Time : *%time*
 │
 ├ Uptime: *%uptime (%muptime)*
-├ Database: %rtotalreg dari %totalreg
-├ Github:
-├ %github
+├ Database: %rtotalreg from %totalreg
 └────
 %readmore`.trimStart(),
   header: '┌─〔 %category 〕',
@@ -301,33 +299,33 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       }, {}), { waitForAck: true })
     }
     // gunakan ini jika kamu menggunakan whatsapp bisnis
-    //   throw `
-    // ┌〔 DAFTAR MENU 〕
-    // ├ ${_p + command} all
-    // ├ ${_p + command} game
-    // ├ ${_p + command} xp
-    // ├ ${_p + command} stiker
-    // ├ ${_p + command} kerang
-    // ├ ${_p + command} quotes
-    // ├ ${_p + command} admin
-    // ├ ${_p + command} group
-    // ├ ${_p + command} premium
-    // ├ ${_p + command} internet
-    // ├ ${_p + command} anonymous
-    // ├ ${_p + command} nulis
-    // ├ ${_p + command} downloader
-    // ├ ${_p + command} tools
-    // ├ ${_p + command} fun
-    // ├ ${_p + command} database
-    // ├ ${_p + command} vote
-    // ├ ${_p + command} quran
-    // ├ ${_p + command} audio
-    // ├ ${_p + command} jadibot
-    // ├ ${_p + command} info
-    // ├ ${_p + command} tanpa kategori
-    // ├ ${_p + command} owner
-    // └────  
-    //     `.trim()
+       throw `
+     ┌〔 LIST MENU 〕
+     ├ ${_p + command} all
+     ├ ${_p + command} game
+     ├ ${_p + command} xp
+     ├ ${_p + command} stiker
+     ├ ${_p + command} kerang
+     ├ ${_p + command} quotes
+     ├ ${_p + command} admin
+     ├ ${_p + command} group
+     ├ ${_p + command} premium
+     ├ ${_p + command} internet
+     ├ ${_p + command} anonymous
+     ├ ${_p + command} nulis
+     ├ ${_p + command} downloader
+     ├ ${_p + command} tools
+     ├ ${_p + command} fun
+     ├ ${_p + command} database
+     ├ ${_p + command} vote
+     ├ ${_p + command} quran
+     ├ ${_p + command} audio
+     ├ ${_p + command} jadibot
+     ├ ${_p + command} info
+     ├ ${_p + command} tanpa kategori
+     ├ ${_p + command} owner
+     └────  
+         `.trim()
     let groups = {}
     for (let tag in tags) {
       groups[tag] = []
@@ -377,7 +375,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), 'made with ❤️ by ariffb', 'Pemilik Bot', '.owner', 'Donasi', '.donasi', m)
+    await conn.send2ButtonLoc(m.chat, await (await fetch(fla + teks)).buffer(), text.trim(), '© ItsukiBot', 'Pemilik Bot', '.owner', 'Donasi', '.donasi', m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
